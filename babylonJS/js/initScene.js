@@ -63,32 +63,42 @@ function initGame() {
     lane.scaling.z = 80000; //Size in z
     lane.position.x = position; //x position
     lane.position.z = position; //z position
-};
-var createwallside2 = function (id, position) {
-    var  twowall = BABYLON.Mesh.CreateBox("lane"+id, 1, scene);
-    lane.scaling.y = 80000 //Size in y
-    lane.scaling.x = 0.1; //Size in x
-    lane.scaling.z = 80000; //Size in z
-    lane.position.y = position; //x position
-    lane.position.z = position - 800; //z position
-};
-var createWallside3 = function (id, position) {
-    var  threewall = BABYLON.mesh.CreateBox("lane"+id, 1, scene);
-    lane.scaling.y = 80000 //Size in y
-    lane.scaling.x = 80000; //Size in x
-    lane.scaling.z = 0.1; //Size in z;
-    lane.position.x = position; //x position
-    lane.position.y = position; //z position
-};
+    };
+    var createwallside2 = function (id, position) {
+        var  twowall = BABYLON.Mesh.CreateBox("lane"+id, 1, scene);
+        lane.scaling.y = 80000 //Size in y
+        lane.scaling.x = 0.1; //Size in x
+        lane.scaling.z = 80000; //Size in z
+        lane.position.y = position; //x position
+        lane.position.z = position - 800; //z position
+    };
+    var createWallside3 = function (id, position) {
+        var  threewall = BABYLON.mesh.CreateBox("lane"+id, 1, scene);
+        lane.scaling.y = 80000 //Size in y
+        lane.scaling.x = 80000; //Size in x
+        lane.scaling.z = 0.1; //Size in z;
+        lane.position.x = position; //x position
+        lane.position.y = position; //z position
 
-createwalltb(1,0)
-createwalltb(2,800)
 
-createwallside2(3,0)
-createwallside2(4,800)
+    };
 
-createWallside3(5,0)
-createWallside3(6,800)
+    createwalltb(1,0)
+    createwalltb(2,800)
+
+    createwallside2(3,0)
+    createwallside2(4,800)
+
+    createWallside3(5,0)
+    createWallside3(6,800)
+
+    // working on collisions and gravity and random object spawning
+    var rand = function(min, max){ return Math.floor(Math.random()*(max-min+1)+min)};
+
+
+    return scene;
+
+    var clone = sphere
 
 }
     //keyboard events
@@ -112,3 +122,4 @@ function onKeyDown(event) {
         
     }
 }
+
