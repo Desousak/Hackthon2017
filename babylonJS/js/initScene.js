@@ -56,7 +56,50 @@ function initGame() {
     window.addEventListener("keydown", onKeyDown);
    // document.addEventListener("keydown", keyUpHandler, false);
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+   var createwalltb = function (id, position, scene) {
+    var  onewall = BABYLON.Mesh.CreateBox("lane"+id, 1, scene);
+    lane.scaling.y = 0.1; //Size in y
+    lane.scaling.x = 80000; //Size in x
+    lane.scaling.z = 80000; //Size in z
+    lane.position.x = position; //x position
+    lane.position.z = position; //z position
+};
+var createwallside2 = function (id, position) {
+    var  twowall = BABYLON.Mesh.CreateBox("lane"+id, 1, scene);
+    lane.scaling.y = 80000 //Size in y
+    lane.scaling.x = 0.1; //Size in x
+    lane.scaling.z = 80000; //Size in z
+    lane.position.y = position; //x position
+    lane.position.z = position - 800; //z position
+};
+var createWallside3 = function (id, position) {
+    var  threewall = BABYLON.mesh.CreateBox("lane"+id, 1, scene);
+    lane.scaling.y = 80000 //Size in y
+    lane.scaling.x = 80000; //Size in x
+    lane.scaling.z = 0.1; //Size in z;
+    lane.position.x = position; //x position
+    lane.position.y = position; //z position
+};
+
+createwalltb(1,0)
+createwalltb(2,800)
+
+createwallside2(3,0)
+createwallside2(4,800)
+
+createWallside3(5,0)
+createWallside3(6,800)
+
+}
+=======
+<<<<<<< HEAD
+   
+    
+>>>>>>> fbf70fcb096650debeab9340a7afef9e2c4049e0
 
     //keyboard events
     // camera.inputs.add(new BABYLON.FreeCamera)
@@ -81,3 +124,12 @@ function onKeyDown(event) {
     }
 }
 
+<<<<<<< HEAD
+=======
+window.addEventListener("keydown", onKeyDown);
+=======
+
+}
+>>>>>>> 40487b4ef925706aefb19c35a75e5e6f734d9faf
+>>>>>>> 16c50b73001edfb5a5b271b3bb3d28d008b492c2
+>>>>>>> fbf70fcb096650debeab9340a7afef9e2c4049e0
