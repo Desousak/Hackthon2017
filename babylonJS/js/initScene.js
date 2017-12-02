@@ -38,4 +38,12 @@ function initScene() {
     engine.runRenderLoop(function () {
         scene.render();
     })
+    initGame();
+}
+
+/**
+ * Initialize the game
+ */
+function initGame() {
+    BABYLON.Mesh.CreateSphere("sphere", 10, 1, scene);
 }
