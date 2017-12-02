@@ -44,6 +44,8 @@ function initScene() {
     });
     // engine.isPointerLock = true;
     initGame();
+
+    //Phi
 }
 
 /**
@@ -53,6 +55,7 @@ function initGame() {
     var ball = BABYLON.Mesh.CreateSphere("sphere", 16, 1, scene);
    // document.addEventListener("keydown", keyUpHandler, false);
 
+<<<<<<< HEAD
    
     
 
@@ -80,3 +83,7 @@ function onKeyDown(event) {
 }
 
 window.addEventListener("keydown", onKeyDown);
+=======
+
+}
+>>>>>>> 40487b4ef925706aefb19c35a75e5e6f734d9faf
