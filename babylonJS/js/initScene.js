@@ -22,16 +22,14 @@ function initScene() {
     engine = new BABYLON.Engine(canvas, true);
     // Create scene
     scene = new BABYLON.Scene(engine);
-    scene.clearColor =  new BABYLON.Color3(0,0,0);
+    scene.clearColor = new BABYLON.Color3(0, 0, 0);
 
-    scene.enablePhysics();
-    scene.collisionsEnabled = true;
     // Create the camera
     camera = new BABYLON.FreeCamera("camera", new BABYLON.Vector3(0, 10, -40), scene);
     camera.setTarget(new BABYLON.Vector3.Zero());
     camera.attachControl(canvas);
 
-   
+
     // Create light
     var light = new BABYLON.PointLight("light", new BABYLON.Vector3(0, 5, -5), scene);
 
@@ -56,15 +54,19 @@ function initGame() {
     skybox.material = skyboxMaterial;
 
 
-    var ball = BABYLON.Mesh.CreateSphere("sphere", 16, 1, scene);
-    var ballMaterial = new BABYLON.StandardMaterial("sphere", scene);
+    var ball = BABYLON.Mesh.CreateSphere("ball", 16, 2, scene);
+    var ballMaterial = new BABYLON.StandardMaterial("ball", scene);
     ballMaterial.emissiveColor = new BABYLON.Color3(0.96, 1, 0);
     ball.material = ballMaterial;
+    ball.position.y = 2;
+    scene.enablePhysics();
+    ball.physicsImpostor = new BABYLON.PhysicsImpostor(ball, BABYLON.PhysicsImpostor.SphereImpostor, { mass: 1, restitution: 0.9 }, scene);
+
 
     window.addEventListener("keydown", onKeyDown);
 }
 
 
-function onKeyDown(event) { 
+function onKeyDown(event) {
 }
 
