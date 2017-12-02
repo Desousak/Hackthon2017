@@ -53,11 +53,10 @@ function initScene() {
  */
 function initGame() {
     var ball = BABYLON.Mesh.CreateSphere("sphere", 16, 1, scene);
+    window.addEventListener("keydown", onKeyDown);
    // document.addEventListener("keydown", keyUpHandler, false);
 
-<<<<<<< HEAD
-   
-    
+
 
     //keyboard events
     // camera.inputs.add(new BABYLON.FreeCamera)
@@ -82,8 +81,3 @@ function onKeyDown(event) {
     }
 }
 
-window.addEventListener("keydown", onKeyDown);
-=======
-
-}
->>>>>>> 40487b4ef925706aefb19c35a75e5e6f734d9faf
