@@ -55,4 +55,6 @@ function initGame() {
     //keyboard events
    // camera.inputs.add(new BABYLON.FreeCamera)
    //test
+
+    
 }
