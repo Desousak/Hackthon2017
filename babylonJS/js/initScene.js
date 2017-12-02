@@ -55,7 +55,7 @@ function initGame() {
 
     window.addEventListener("keydown", onKeyDown);
 
-    var createwalltb = function (id, position, scene) {
+    /*var createwalltb = function (id, position, scene) {
         var onewall = BABYLON.Mesh.CreateBox("lane" + id, 1, scene);
         lane.scaling.y = 0.1; //Size in y
         lane.scaling.x = 8; //Size in x
@@ -63,7 +63,7 @@ function initGame() {
         lane.position.x = position; //x position
         lane.position.z = position; //z position
     };
-  /*  var createwallside2 = function (id, position) {
+    var createwallside2 = function (id, position) {
         var twowall = BABYLON.Mesh.CreateBox("lane" + id, 1, scene);
         lane.scaling.y = 80000 //Size in y
         lane.scaling.x = 0.1; //Size in x
@@ -80,7 +80,7 @@ function initGame() {
         lane.position.y = position; //z position
     };*/
 
-    createwalltb(1, 0)
+    //createwalltb(1, 0)
     //createwalltb(2, 800)
 
     //createwallside2(3, 0)
