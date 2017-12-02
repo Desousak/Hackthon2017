@@ -48,6 +48,26 @@ function initGame() {
     floor.scaling.y = 0.1;
     floor.scaling.x = 50;
     floor.scaling.z = 50;
+    var wall1 = BABYLON.Mesh.CreateBox("wall1", 1, scene); //left
+    wall1.scaling.y = 25;
+    wall1.scaling.x = 0.5;
+    wall1.scaling.z = 50;
+    wall1.position.x = -25;
+    wall1.position.y = 12.5;
+    var wall2 = BABYLON.Mesh.CreateBox("wall2", 1, scene); //right
+    wall2.scaling.y = 25;
+    wall2.scaling.x = 0.5;
+    wall2.scaling.z = 50;
+    wall2.position.x = 25;
+    wall2.position.y = 12.5;
+    var wall3 = BABYLON.Mesh.CreateBox("wall2", 1, scene); //right
+    wall3.scaling.y = 50;
+    wall3.scaling.z = 0.5;
+    wall3.scaling.x = 50;
+    wall3.position.x = 0;
+    wall3.position.z = 25;
+
+
 
     var ball = BABYLON.Mesh.CreateSphere("ball", 16, 2, scene);
     var ballMaterial = new BABYLON.StandardMaterial("ball", scene);
@@ -59,6 +79,9 @@ function initGame() {
     scene.enablePhysics(gravityVector);
     ball.physicsImpostor = new BABYLON.PhysicsImpostor(ball, BABYLON.PhysicsImpostor.SphereImpostor, { mass: 1, restitution: 1}, scene);
     floor.physicsImpostor = new BABYLON.PhysicsImpostor(floor, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
+    wall1.physicsImpostor = new BABYLON.PhysicsImpostor(wall1, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
+    wall2.physicsImpostor = new BABYLON.PhysicsImpostor(wall2, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
+    wall3.physicsImpostor = new BABYLON.PhysicsImpostor(wall3, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
     window.addEventListener("keydown", onKeyDown);
 }
 
