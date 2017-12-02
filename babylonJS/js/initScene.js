@@ -97,6 +97,7 @@ function initGame() {
 }
 
 
+    
 function onKeyDown(event) {
     switch (event.keyCode) {
         case 68:
