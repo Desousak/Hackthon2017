@@ -95,6 +95,7 @@ createWallside3(6,800)
     // camera.inputs.add(new BABYLON.FreeCamera)
 
 
+
 function onKeyDown(event) {
     switch(event.keyCode){
         case 68:
