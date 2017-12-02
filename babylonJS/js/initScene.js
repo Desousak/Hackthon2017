@@ -63,8 +63,8 @@ function initGame() {
     var createwalltb = function (id, position, scene) {
         var onewall = BABYLON.Mesh.CreateBox("lane" + id, 1, scene);
         lane.scaling.y = 0.1; //Size in y
-        lane.scaling.x = 800000; //Size in x
-        lane.scaling.z = 800000; //Size in z
+        lane.scaling.x = 8; //Size in x
+        lane.scaling.z = 8; //Size in z
         lane.position.x = position; //x position
         lane.position.z = position; //z position
     };
