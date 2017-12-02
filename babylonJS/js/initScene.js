@@ -37,5 +37,5 @@ function initScene() {
 
     engine.runRenderLoop(function () {
         scene.render();
-    }
+    })
 }
