@@ -41,13 +41,15 @@ function initScene() {
 }
 
 function initGame() {
-    var skybox = BABYLON.Mesh.CreateBox("skyBox", 100.0, scene);
+    var skybox = BABYLON.Mesh.CreateBox("skyBox", 20.0, scene);
     var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
     skyboxMaterial.backFaceCulling = false; 
+    skyboxMaterial.diffuseColor = new BABYLON.Color3(0,0,0);
+    skyboxMaterial.alpha = 0.1;
     skyboxMaterial.emissiveColor  = new BABYLON.Color3(0.14,.39,.8);
     skybox.material = skyboxMaterial;
 
-    var ball = BABYLON.Mesh.CreateSphere("sphere", 16, 0.1, scene);
+    var ball = BABYLON.Mesh.CreateSphere("sphere", 16, 1, scene);
     var ballMaterial = new BABYLON.StandardMaterial("sphere", scene);
     skyboxMaterial.backFaceCulling = false; 
     ballMaterial.emissiveColor  = new BABYLON.Color3(0.96,1,0);
