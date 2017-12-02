@@ -1,9 +1,9 @@
 // Global variables
-var canvas, engine, scene, camera, score = 0;
-var TOAD_MODEL;
-
-// An array to store each ending of the lane
-var ENDINGS = [];
+var canvas, engine, scene, camera;
+var rightPressed = false;
+var leftPressed = false;
+var upPressed = false;
+var downPressed = false;
 
 /**
 * Load the scene when the canvas is fully loaded
@@ -30,7 +30,7 @@ function initScene() {
     // Create the camera
     camera = new BABYLON.FreeCamera("camera", new BABYLON.Vector3(0, 4, -10), scene);
     camera.setTarget(new BABYLON.Vector3.Zero());
-    camera.attachControl(canvas, true);
+    camera.attachControl(canvas);
 
     // Create light
     var light = new BABYLON.PointLight("light", new BABYLON.Vector3(0, 5, -5), scene);
@@ -42,7 +42,10 @@ function initScene() {
     window.addEventListener("resize", function () {
         engine.resize();
     });
+    // engine.isPointerLock = true;
     initGame();
+
+    //Phi
 }
 
 /**
@@ -50,11 +53,8 @@ function initScene() {
  */
 function initGame() {
     var ball = BABYLON.Mesh.CreateSphere("sphere", 16, 1, scene);
-    camera.position.x = ball.position.x - 3;
+    window.addEventListener("keydown", onKeyDown);
+   // document.addEventListener("keydown", keyUpHandler, false);
 
-    //keyboard events
-   // camera.inputs.add(new BABYLON.FreeCamera)
-   //test
 
-    
 }
