@@ -35,3 +35,7 @@ function initScene() {
     // Create light
     var light = new BABYLON.PointLight("light", new BABYLON.Vector3(0,5,-5), scene);
 }
+
+engine.runRenderLoop(function () {
+    scene.render();
+}
