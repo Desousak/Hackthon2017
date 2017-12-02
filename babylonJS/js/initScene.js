@@ -58,6 +58,7 @@ function initGame() {
     
 
     //keyboard events
+<<<<<<< HEAD
     // camera.inputs.add(new BABYLON.FreeCamera)
 
 }
@@ -85,4 +86,8 @@ function onKeyDown(event) {
     if (leftPressed) camera.position.x -= 0.5;
     if (upPressed) camera.position.y += 0.5;
     if (downPressed) camera.position.y -= 0.5;
+=======
+   // camera.inputs.add(new BABYLON.FreeCamera)
+   //test
+>>>>>>> 5d46369f2ce3703c6f2c6a26d60064cccc9ade57
 }
