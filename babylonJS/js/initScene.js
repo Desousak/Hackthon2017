@@ -1,9 +1,9 @@
 // Global variables
-var canvas, engine, scene, camera, score = 0;
-var TOAD_MODEL;
-
-// An array to store each ending of the lane
-var ENDINGS = [];
+var canvas, engine, scene, camera;
+var rightPressed = false;
+var leftPressed = false;
+var upPressed = false;
+var downPressed = false;
 
 /**
 * Load the scene when the canvas is fully loaded
@@ -30,7 +30,7 @@ function initScene() {
     // Create the camera
     camera = new BABYLON.FreeCamera("camera", new BABYLON.Vector3(0, 4, -10), scene);
     camera.setTarget(new BABYLON.Vector3.Zero());
-    camera.attachControl(canvas, true);
+    camera.attachControl(canvas);
 
     // Create light
     var light = new BABYLON.PointLight("light", new BABYLON.Vector3(0, 5, -5), scene);
@@ -42,7 +42,10 @@ function initScene() {
     window.addEventListener("resize", function () {
         engine.resize();
     });
+    // engine.isPointerLock = true;
     initGame();
+
+    //Phi
 }
 
 /**
@@ -50,47 +53,41 @@ function initScene() {
  */
 function initGame() {
     var ball = BABYLON.Mesh.CreateSphere("sphere", 16, 1, scene);
-    camera.position.x = ball.position.x - 3;
+    window.addEventListener("keydown", onKeyDown);
+   // document.addEventListener("keydown", keyUpHandler, false);
 
-       
-        // Function to create lanes
-        var createwalltb = function (id, position, scene) {
-            var  onewall = BABYLON.Mesh.CreateBox("lane"+id, 1, scene);
-            lane.scaling.y = 0.1; //Size in y
-            lane.scaling.x = 80000; //Size in x
-            lane.scaling.z = 80000; //Size in z
-            lane.position.x = position; //x position
-            lane.position.z = position; //z position
-        };
-        var createwallside2 = function (id, position) {
-            var  twowall = BABYLON.Mesh.CreateBox("lane"+id, 1, scene);
-            lane.scaling.y = 80000 //Size in y
-            lane.scaling.x = 0.1; //Size in x
-            lane.scaling.z = 80000; //Size in z
-            lane.position.y = position; //x position
-            lane.position.z = position - 800; //z position
-        };
-        var createWallside3 = function (id, position) {
-            var  threewall = BABYLON.mesh.CreateBox("lane"+id, 1, scene);
-            lane.scaling.y = 80000 //Size in y
-            lane.scaling.x = 80000; //Size in x
-            lane.scaling.z = 0.1; //Size in z;
-            lane.position.x = position; //x position
-            lane.position.y = position; //z position
-        };
+   var createwalltb = function (id, position, scene) {
+    var  onewall = BABYLON.Mesh.CreateBox("lane"+id, 1, scene);
+    lane.scaling.y = 0.1; //Size in y
+    lane.scaling.x = 80000; //Size in x
+    lane.scaling.z = 80000; //Size in z
+    lane.position.x = position; //x position
+    lane.position.z = position; //z position
+};
+var createwallside2 = function (id, position) {
+    var  twowall = BABYLON.Mesh.CreateBox("lane"+id, 1, scene);
+    lane.scaling.y = 80000 //Size in y
+    lane.scaling.x = 0.1; //Size in x
+    lane.scaling.z = 80000; //Size in z
+    lane.position.y = position; //x position
+    lane.position.z = position - 800; //z position
+};
+var createWallside3 = function (id, position) {
+    var  threewall = BABYLON.mesh.CreateBox("lane"+id, 1, scene);
+    lane.scaling.y = 80000 //Size in y
+    lane.scaling.x = 80000; //Size in x
+    lane.scaling.z = 0.1; //Size in z;
+    lane.position.x = position; //x position
+    lane.position.y = position; //z position
+};
 
-        createwalltb(1,0)
-        createwalltb(2,800)
+createwalltb(1,0)
+createwalltb(2,800)
 
-        createwallside2(3,0)
-        createwallside2(4,800)
+createwallside2(3,0)
+createwallside2(4,800)
 
-        createWallside3(5,0)
-        createWallside3(6,800)
-        
-        }
+createWallside3(5,0)
+createWallside3(6,800)
 
-    //keyboard events
-   // camera.inputs.add(new BABYLON.FreeCamera)
-   //test
-    }
+}
