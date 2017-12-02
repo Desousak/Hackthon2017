@@ -22,6 +22,8 @@ function initScene() {
     engine = new BABYLON.Engine(canvas, true);
     // Create scene
     scene = new BABYLON.Scene(engine);
+    scene.clearColor =  new BABYLON.Color3(0,0,0);
+
     // Create the camera
     camera = new BABYLON.FreeCamera("camera", new BABYLON.Vector3(0, 10, -40), scene);
     camera.setTarget(new BABYLON.Vector3.Zero());
@@ -30,11 +32,10 @@ function initScene() {
     var skybox = BABYLON.Mesh.CreateBox("skyBox", 20.0, scene);
     var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
     skyboxMaterial.backFaceCulling = false;
-    skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
-    skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
-    skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("assets/cubemap/skybox", scene);
-    skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
-    skyboxMaterial.alpha = 0.5;
+    skyboxMaterial.diffuseColor = new BABYLON.Color3(0.06, 0.419, 0.988);
+    skyboxMaterial.specularColor = new BABYLON.Color3(0.06, 0.419, 0.988);
+    skyboxMaterial.emissiveColor = new BABYLON.Color3(0.06, 0.419, 0.988);
+    skyboxMaterial.alpha = 0.1;
     skybox.material = skyboxMaterial;
 
     // Create light
@@ -60,6 +61,6 @@ function initGame() {
 }
 
 
-function onKeyDown(event) {
+function onKeyDown(event) { 
 }
 
