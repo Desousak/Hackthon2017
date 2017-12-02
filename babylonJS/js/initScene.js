@@ -70,18 +70,20 @@ function initGame() {
     wall2.position.y = 12.5;
     wall2.material = redWireframeMaterial
     var wall3 = BABYLON.Mesh.CreateBox("wall2", 1, scene); //right
-    wall3.scaling.y = 50;
+    wall3.scaling.y = 25;
     wall3.scaling.z = 0.5;
     wall3.scaling.x = 50;
     wall3.position.x = 0;
     wall3.position.z = 25;
+    wall3.position.y = 12.5;
     wall3.material = redWireframeMaterial
     var wall4 = BABYLON.Mesh.CreateBox("wall2", 1, scene); //right
-    wall4.scaling.y = 50;
+    wall4.scaling.y = 25;
     wall4.scaling.z = 0.5;
     wall4.scaling.x = 50;
     wall4.position.x = 0;
     wall4.position.z = -25;
+    wall4.position.y = 12.5;
     wall4.material = redWireframeMaterial
 
     var ceiling = BABYLON.Mesh.CreateBox("ceiling", 1, scene);
