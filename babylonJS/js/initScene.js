@@ -53,9 +53,9 @@ function initScene() {
  */
 function initGame() {
     var ball = BABYLON.Mesh.CreateSphere("sphere", 16, 1, scene);
-    window.addEventListener("keydown", onKeyDown);
    // document.addEventListener("keydown", keyUpHandler, false);
 
+<<<<<<< HEAD
    var createwalltb = function (id, position, scene) {
     var  onewall = BABYLON.Mesh.CreateBox("lane"+id, 1, scene);
     lane.scaling.y = 0.1; //Size in y
@@ -91,3 +91,37 @@ createWallside3(5,0)
 createWallside3(6,800)
 
 }
+=======
+<<<<<<< HEAD
+   
+    
+
+    //keyboard events
+    // camera.inputs.add(new BABYLON.FreeCamera)
+
+}
+
+function onKeyDown(event) {
+    switch(event.keyCode){
+        case 68:
+            camera.position.x += 0.5;
+            break;
+        case 65:
+            camera.position.x -= 0.5;
+            break;
+        case 87:
+            camera.position.y += 0.5;
+            break;
+        case 83:
+            camera.position.y -= 0.5;
+            break;
+        
+    }
+}
+
+window.addEventListener("keydown", onKeyDown);
+=======
+
+}
+>>>>>>> 40487b4ef925706aefb19c35a75e5e6f734d9faf
+>>>>>>> 16c50b73001edfb5a5b271b3bb3d28d008b492c2
