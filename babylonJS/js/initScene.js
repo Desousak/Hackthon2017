@@ -91,9 +91,12 @@ createWallside3(5,0)
 createWallside3(6,800)
 
 }
+<<<<<<< HEAD
     //keyboard events
     // camera.inputs.add(new BABYLON.FreeCamera)
 
+=======
+>>>>>>> f0ca54bbe56c54200b0bd31bd530474a0e6e875e
 
 function onKeyDown(event) {
     switch(event.keyCode){
