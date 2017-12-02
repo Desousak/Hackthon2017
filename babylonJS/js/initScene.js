@@ -47,7 +47,7 @@ function initScene() {
     window.addEventListener("resize", function () {
         engine.resize();
     });
-    engine.isPointerLock = true;
+   //engine.isPointerLock = true;
     initGame();
 
     //Phi
@@ -100,22 +100,22 @@ function initGame() {
 function onKeyDown(event) {
     switch (event.keyCode) {
         case 68:
-            camera.position.x += 0.5;
+            //camera.setPosition(new BABYLON.Vector3(camera.position.x + 1, camera.position.y, camera.position.z));
             break;
         case 65:
-            camera.position.x -= 0.5;
+            //camera.setPosition(camera.position.x - 0.01, camera.position.y, camera.position.z);
             break;
         case 87:
-            camera.position.y += 0.5;
+            //camera.setPosition(camera.position.x, camera.position.y + 0.01, camera.position.z);;
             break;
         case 83:
-            camera.position.y -= 0.5;
+            //camera.setPosition(camera.position.x + 0.01, camera.position.y + 0.01, camera.position.z);
             break;
         case 81:
-            camera.position.z -= 0.5;
+            //camera.setPosition(camera.position.x, camera.position.y, camera.position.z - 0.01);
             break;
         case 69:
-            camera.position.z += 0.5;
+            //camera.setPosition(camera.position.x, camera.position.y, camera.position.z + 0.01);
 
     }
 }
