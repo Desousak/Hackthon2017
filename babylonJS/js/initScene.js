@@ -25,7 +25,7 @@ function initScene() {
     scene.clearColor = new BABYLON.Color3(0, 0, 0);
 
     // Create the camera
-    camera = new BABYLON.FreeCamera("camera", new BABYLON.Vector3(0, 10, -40), scene);
+    camera = new BABYLON.FreeCamera("camera", new BABYLON.Vector3(20, 10, 10), scene);
     camera.setTarget(new BABYLON.Vector3.Zero());
     camera.attachControl(canvas);
 
@@ -48,6 +48,7 @@ function initGame() {
     floor.scaling.y = 0.1;
     floor.scaling.x = 50;
     floor.scaling.z = 50;
+
     var wall1 = BABYLON.Mesh.CreateBox("wall1", 1, scene); //left
     wall1.scaling.y = 25;
     wall1.scaling.x = 0.5;
@@ -66,7 +67,23 @@ function initGame() {
     wall3.scaling.x = 50;
     wall3.position.x = 0;
     wall3.position.z = 25;
+   
+    var wall4 = BABYLON.Mesh.CreateBox("wall2", 1, scene); //right
+    wall4.scaling.y = 50;
+    wall4.scaling.z = 0.5;
+    wall4.scaling.x = 50;
+    wall4.position.x = 0;
+    wall4.position.z = -25;
+    
+    
+   
 
+    var ceiling = BABYLON.Mesh.CreateBox("ceiling", 1, scene);
+    ceiling.scaling.y = 0.5;
+    ceiling.scaling.x = 50;
+    ceiling.scaling.z = 50;
+    ceiling.position.y = 25;
+    
 
 
     var ball = BABYLON.Mesh.CreateSphere("ball", 16, 2, scene);
@@ -82,6 +99,9 @@ function initGame() {
     wall1.physicsImpostor = new BABYLON.PhysicsImpostor(wall1, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
     wall2.physicsImpostor = new BABYLON.PhysicsImpostor(wall2, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
     wall3.physicsImpostor = new BABYLON.PhysicsImpostor(wall3, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
+    wall4.physicsImpostor = new BABYLON.PhysicsImpostor(wall4, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
+    ceilingphysicsImpostor = new BABYLON.PhysicsImpostor(ceiling, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
+
     window.addEventListener("keydown", onKeyDown);
 }
 
