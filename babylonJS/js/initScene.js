@@ -44,25 +44,21 @@ function initScene() {
 }
 
 function initGame() {
-    var skybox = BABYLON.Mesh.CreateBox("skyBox", 20.0, scene);
-    var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
-    skyboxMaterial.backFaceCulling = false;
-    skyboxMaterial.diffuseColor = new BABYLON.Color3(0.06, 0.419, 0.988);
-    skyboxMaterial.specularColor = new BABYLON.Color3(0.06, 0.419, 0.988);
-    skyboxMaterial.emissiveColor = new BABYLON.Color3(0.06, 0.419, 0.988);
-    skyboxMaterial.alpha = 0.1;
-    skybox.material = skyboxMaterial;
-
+    var floor = BABYLON.Mesh.CreateBox("floor", 1, scene);
+    floor.scaling.y = 0.1;
+    floor.scaling.x = 50;
+    floor.scaling.z = 50;
 
     var ball = BABYLON.Mesh.CreateSphere("ball", 16, 2, scene);
     var ballMaterial = new BABYLON.StandardMaterial("ball", scene);
     ballMaterial.emissiveColor = new BABYLON.Color3(0.96, 1, 0);
     ball.material = ballMaterial;
-    ball.position.y = 2;
-    scene.enablePhysics();
-    ball.physicsImpostor = new BABYLON.PhysicsImpostor(ball, BABYLON.PhysicsImpostor.SphereImpostor, { mass: 1, restitution: 0.9 }, scene);
+    ball.position.y = 10;
 
-
+    var gravityVector = new BABYLON.Vector3(0, -9.81, 0);
+    scene.enablePhysics(gravityVector);
+    ball.physicsImpostor = new BABYLON.PhysicsImpostor(ball, BABYLON.PhysicsImpostor.SphereImpostor, { mass: 1, restitution: 1}, scene);
+    floor.physicsImpostor = new BABYLON.PhysicsImpostor(floor, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
     window.addEventListener("keydown", onKeyDown);
 }
 
