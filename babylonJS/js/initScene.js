@@ -45,7 +45,7 @@ function initScene() {
     // engine.isPointerLock = true;
     initGame();
 
-    //Phi
+    
 }
 
 /**
