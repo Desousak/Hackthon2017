@@ -45,5 +45,43 @@ function initScene() {
  * Initialize the game
  */
 function initGame() {
-    BABYLON.Mesh.CreateSphere("sphere", 10, 1, scene);
+   
+    // Number of lanes
+    var LANE_NUMBER = 3;
+    // Space between lanes
+    var LANE_INTERVAL = 5;
+    var LANES_POSITIONS = [];
+
+    // Function to create lanes
+    var createLane = function (id, position) {
+        var lane = BABYLON.Mesh.CreateBox("lane"+id, 1, scene);
+        lane.scaling.y = 0.1; //Size in y
+        lane.scaling.x = 3; //Size in x
+        lane.scaling.z = 800; //Size in z
+        lane.position.x = position; //x position
+        lane.position.z = lane.scaling.z/2-200; //z position
+    };
+
+    var createEnding = function (id, position) {
+        var ending = BABYLON.Mesh.CreateGround(id, 3, 4, 1, scene); //Ground variable
+        ending.position.x = position;
+        ending.position.y = 0.1;
+        ending.position.z = 1;
+        var mat = new BABYLON.StandardMaterial("endingMat", scene); //Material variable
+        mat.diffuseColor = new BABYLON.Color3(0.8,0.2,0.2);
+        ending.material = mat;
+        return ending;
+    };
+
+    var currentLanePosition = LANE_INTERVAL * -1 * (LANE_NUMBER/2);
+    for (var i = 0; i<LANE_NUMBER; i++){
+        LANES_POSITIONS[i] = currentLanePosition;
+        createLane(i, currentLanePosition);
+        var e = createEnding(i, currentLanePosition);
+        ENDINGS.push(e);
+        currentLanePosition += LANE_INTERVAL;
+    }
+
+    // Adjust camera position
+    camera.position.x = LANES_POSITIONS[Math.floor(LANE_NUMBER/2)];
 }
