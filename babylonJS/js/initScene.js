@@ -51,43 +51,32 @@ function initScene() {
  */
 function initGame() {
     var ball = BABYLON.Mesh.CreateSphere("sphere", 16, 1, scene);
-    window.addEventListener("keydown", onKeyDown);
    // document.addEventListener("keydown", keyUpHandler, false);
 
    
     
 
     //keyboard events
-<<<<<<< HEAD
     // camera.inputs.add(new BABYLON.FreeCamera)
 
 }
 
 function onKeyDown(event) {
-    if (event.keyCode == 68) {
-        rightPressed = true;
-        break;
+    switch(event.keyCode){
+        case 68:
+            camera.position.x += 0.5;
+            break;
+        case 65:
+            camera.position.x -= 0.5;
+            break;
+        case 87:
+            camera.position.y += 0.5;
+            break;
+        case 83:
+            camera.position.y -= 0.5;
+            break;
+        
     }
-    if (event.keyCode == 65) {
-        leftPressed = false;
-        break;
-    }
-    if (event.keyCode == 87) {
-        downPressed = false;
-        break;
-    }
-    if (event.keyCode == 83) {
-        upPressed = false;
-        break;
-    }
-
-
-    if (rightPressed) camera.position.x += 0.5;
-    if (leftPressed) camera.position.x -= 0.5;
-    if (upPressed) camera.position.y += 0.5;
-    if (downPressed) camera.position.y -= 0.5;
-=======
-   // camera.inputs.add(new BABYLON.FreeCamera)
-   //test
->>>>>>> 5d46369f2ce3703c6f2c6a26d60064cccc9ade57
 }
+
+window.addEventListener("keydown", onKeyDown);
