@@ -44,47 +44,52 @@ function initScene() {
 }
 
 function initGame() {
+
+    var redWireframeMaterial = new BABYLON.StandardMaterial("redWireframeMaterial", scene);
+    redWireframeMaterial.emissiveColor = new BABYLON.Color3(1.0, 0.0, 0.0);
+    redWireframeMaterial.wireframe = true;
+
+
     var floor = BABYLON.Mesh.CreateBox("floor", 1, scene);
     floor.scaling.y = 0.1;
     floor.scaling.x = 50;
     floor.scaling.z = 50;
-
+    floor.material = redWireframeMaterial
     var wall1 = BABYLON.Mesh.CreateBox("wall1", 1, scene); //left
     wall1.scaling.y = 25;
     wall1.scaling.x = 0.5;
     wall1.scaling.z = 50;
     wall1.position.x = -25;
     wall1.position.y = 12.5;
+    wall1.material = redWireframeMaterial
     var wall2 = BABYLON.Mesh.CreateBox("wall2", 1, scene); //right
     wall2.scaling.y = 25;
     wall2.scaling.x = 0.5;
     wall2.scaling.z = 50;
     wall2.position.x = 25;
     wall2.position.y = 12.5;
+    wall2.material = redWireframeMaterial
     var wall3 = BABYLON.Mesh.CreateBox("wall2", 1, scene); //right
     wall3.scaling.y = 50;
     wall3.scaling.z = 0.5;
     wall3.scaling.x = 50;
     wall3.position.x = 0;
     wall3.position.z = 25;
-   
+    wall3.material = redWireframeMaterial
     var wall4 = BABYLON.Mesh.CreateBox("wall2", 1, scene); //right
     wall4.scaling.y = 50;
     wall4.scaling.z = 0.5;
     wall4.scaling.x = 50;
     wall4.position.x = 0;
     wall4.position.z = -25;
-    
-    
-   
+    wall4.material = redWireframeMaterial
 
     var ceiling = BABYLON.Mesh.CreateBox("ceiling", 1, scene);
     ceiling.scaling.y = 0.5;
     ceiling.scaling.x = 50;
     ceiling.scaling.z = 50;
     ceiling.position.y = 25;
-    
-
+    ceiling.material = redWireframeMaterial
 
     var ball = BABYLON.Mesh.CreateSphere("ball", 16, 2, scene);
     var ballMaterial = new BABYLON.StandardMaterial("ball", scene);
