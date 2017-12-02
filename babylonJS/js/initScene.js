@@ -28,16 +28,20 @@ function initScene() {
     scene = new BABYLON.Scene(engine);
 
     // Create the camera
-    camera = new BABYLON.FreeCamera("camera", new BABYLON.Vector3(0,4,-10), scene);
-    camera.setTarget(new BABYLON.Vector3(0,0,10));
-    camera.attachControl(canvas);
+    camera = new BABYLON.FreeCamera("camera", new BABYLON.Vector3(0, 4, -10), scene);
+    camera.setTarget(new BABYLON.Vector3.Zero());
+    camera.attachControl(canvas, true);
 
     // Create light
-    var light = new BABYLON.PointLight("light", new BABYLON.Vector3(0,5,-5), scene);
+    var light = new BABYLON.PointLight("light", new BABYLON.Vector3(0, 5, -5), scene);
 
     engine.runRenderLoop(function () {
         scene.render();
     })
+    // Watch for browser/canvas resize events
+    window.addEventListener("resize", function () {
+        engine.resize();
+    });
     initGame();
 }
 
@@ -45,43 +49,9 @@ function initScene() {
  * Initialize the game
  */
 function initGame() {
-   
-    // Number of lanes
-    var LANE_NUMBER = 3;
-    // Space between lanes
-    var LANE_INTERVAL = 5;
-    var LANES_POSITIONS = [];
+    var ball = BABYLON.Mesh.CreateSphere("sphere", 16, 1, scene);
+    camera.position.x = ball.position.x - 3;
 
-    // Function to create lanes
-    var createLane = function (id, position) {
-        var lane = BABYLON.Mesh.CreateBox("lane"+id, 1, scene);
-        lane.scaling.y = 0.1; //Size in y
-        lane.scaling.x = 3; //Size in x
-        lane.scaling.z = 800; //Size in z
-        lane.position.x = position; //x position
-        lane.position.z = lane.scaling.z/2-200; //z position
-    };
-
-    var createEnding = function (id, position) {
-        var ending = BABYLON.Mesh.CreateGround(id, 3, 4, 1, scene); //Ground variable
-        ending.position.x = position;
-        ending.position.y = 0.1;
-        ending.position.z = 1;
-        var mat = new BABYLON.StandardMaterial("endingMat", scene); //Material variable
-        mat.diffuseColor = new BABYLON.Color3(0.8,0.2,0.2);
-        ending.material = mat;
-        return ending;
-    };
-
-    var currentLanePosition = LANE_INTERVAL * -1 * (LANE_NUMBER/2);
-    for (var i = 0; i<LANE_NUMBER; i++){
-        LANES_POSITIONS[i] = currentLanePosition;
-        createLane(i, currentLanePosition);
-        var e = createEnding(i, currentLanePosition);
-        ENDINGS.push(e);
-        currentLanePosition += LANE_INTERVAL;
-    }
-
-    // Adjust camera position
-    camera.position.x = LANES_POSITIONS[Math.floor(LANE_NUMBER/2)];
+    //keyboard events
+   // camera.inputs.add(new BABYLON.FreeCamera)
 }
