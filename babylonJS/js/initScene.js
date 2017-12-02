@@ -43,13 +43,18 @@ function initScene() {
 function initGame() {
     var skybox = BABYLON.Mesh.CreateBox("skyBox", 100.0, scene);
     var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
-    skyboxMaterial.backFaceCulling = false;
-    skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
-    skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+    skyboxMaterial.backFaceCulling = false; 
+    skyboxMaterial.emissiveColor  = new BABYLON.Color3(0.14,.39,.8);
     skybox.material = skyboxMaterial;
 
     var ball = BABYLON.Mesh.CreateSphere("sphere", 16, 0.1, scene);
+    var ballMaterial = new BABYLON.StandardMaterial("sphere", scene);
+    skyboxMaterial.backFaceCulling = false; 
+    ballMaterial.emissiveColor  = new BABYLON.Color3(0.96,1,0);
+    ball.material = ballMaterial;
+
     window.addEventListener("keydown", onKeyDown);
+<<<<<<< HEAD
     /*// document.addEventListener("keydown", keyUpHandler, false);
 
     var createwalltb = function (id, position) {
@@ -59,6 +64,14 @@ function initGame() {
         lane.scaling.y = 0.1; //Size in y
         lane.scaling.x = 80000; //Size in x
         lane.scaling.z = 80000; //Size in z
+=======
+
+    /*var createwalltb = function (id, position, scene) {
+        var onewall = BABYLON.Mesh.CreateBox("lane" + id, 1, scene);
+        lane.scaling.y = 0.1; //Size in y
+        lane.scaling.x = 8; //Size in x
+        lane.scaling.z = 8; //Size in z
+>>>>>>> 113cf4e68f403996c6c86a908a318c5f7c328872
         lane.position.x = position; //x position
         lane.position.z = position; //z position
     };
@@ -77,10 +90,9 @@ function initGame() {
         lane.scaling.z = 0.1; //Size in z;
         lane.position.x = position; //x position
         lane.position.y = position; //z position
-<<<<<<< HEAD
     };*/
 
-    createwalltb(1, 0)
+    //createwalltb(1, 0)
     //createwalltb(2, 800)
 
     //createwallside2(3, 0)
@@ -88,6 +100,7 @@ function initGame() {
 
     //createWallside3(5, 0)
     //createWallside3(6, 800)
+<<<<<<< HEAD
 
 
         
@@ -111,6 +124,8 @@ function initGame() {
 
     var clone = sphere
 
+=======
+>>>>>>> 113cf4e68f403996c6c86a908a318c5f7c328872
 
 }
 
