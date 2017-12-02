@@ -50,18 +50,6 @@ function initGame() {
 
     var ball = BABYLON.Mesh.CreateSphere("sphere", 16, 0.1, scene);
     window.addEventListener("keydown", onKeyDown);
-<<<<<<< HEAD
-
-    var createwalltb = function (id, position, scene) {
-        var onewall = BABYLON.Mesh.CreateBox("lane" + id, 1, scene);
-        lane.scaling.y = 0.1; //Size in y
-        lane.scaling.x = 8; //Size in x
-        lane.scaling.z = 8; //Size in z
-        lane.position.x = position; //x position
-        lane.position.z = position; //z position
-    };
-  /*  var createwallside2 = function (id, position) {
-=======
     /*// document.addEventListener("keydown", keyUpHandler, false);
 
     var createwalltb = function (id, position) {
@@ -75,7 +63,6 @@ function initGame() {
         lane.position.z = position; //z position
     };
     var createwallside2 = function (id, position) {
->>>>>>> efc06b4b6290efd56aedcbde4397a77af2ab6c8e
         var twowall = BABYLON.Mesh.CreateBox("lane" + id, 1, scene);
         lane.scaling.y = 80000 //Size in y
         lane.scaling.x = 0.1; //Size in x
@@ -101,12 +88,13 @@ function initGame() {
 
     //createWallside3(5, 0)
     //createWallside3(6, 800)
-=======
+
 
         
     };
 
-    createwalltb(1, 0)*/
+    createwalltb(1, 0)
+    
     /*createwalltb(2, 800)
 
     createwallside2(3, 0)
@@ -122,7 +110,7 @@ function initGame() {
     return scene;
 
     var clone = sphere
->>>>>>> efc06b4b6290efd56aedcbde4397a77af2ab6c8e
+
 
 }
 
