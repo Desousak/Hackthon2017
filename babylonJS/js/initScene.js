@@ -22,10 +22,10 @@ function initScene() {
     engine = new BABYLON.Engine(canvas, true);
     // Create scene
     scene = new BABYLON.Scene(engine);
-    scene.clearColor = new BABYLON.Color3(0, 0, 0);
+    scene.clearColor = new BABYLON.Color3(0.5, 0.5, 0.5);
 
     // Create the camera
-    camera = new BABYLON.FreeCamera("camera", new BABYLON.Vector3(500, 500, 500), scene);
+    camera = new BABYLON.FreeCamera("camera", new BABYLON.Vector3(100, 100, 100), scene);
     camera.setTarget(new BABYLON.Vector3.Zero());
     camera.attachControl(canvas);
 
@@ -126,9 +126,9 @@ function initGame() {
         var xx = rand(1, 10);
         var yy = rand(1, 10);
         var zz = rand(1, 10);
-        //var ax = rand(1,10);
-        //var ay = rand(1,10);
-        //var az = rand(1,15);
+        var ax = rand(1,10);
+        var ay = rand(1,10);
+        var az = rand(1,15);
         balls[i] = new BABYLON.Mesh.CreateSphere("ball" + i.toString(), a, b, scene);
         ballMaterial[i] = new BABYLON.StandardMaterial("ball" + i.toString(), scene);
         ballMaterial[i].emissiveColor = new BABYLON.Color3(c, d, e);
@@ -140,7 +140,7 @@ function initGame() {
             restitution: y
         }, scene);
         balls[i].physicsImpostor.setLinearVelocity(new BABYLON.Vector3(xx, yy, zz));
-        //balls[i].physicsImpostor.setAngularVelocity(new BABYLON.Vector3(ax,ay,az));
+        balls[i].physicsImpostor.setAngularVelocity(new BABYLON.Vector3(ax,ay,az));
 
     }
 
