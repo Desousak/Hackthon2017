@@ -49,45 +49,57 @@ function initGame() {
     clearaMat.diffuseColor = new BABYLON.Color3(1, 1, 1);
     clearaMat.alpha = 0.5;
 
+    scene.enablePhysics(gravityVector);
+
+    var orbit1 = BABYLON.MeshBuilder.CreateSphere("orbit1",{diameter: 100, diameterX: 110},scene)
+    orbit1.applyGravity = true
+    orbit1.gravity = new BABYLON.Vector3 (9.8,9.8,9.80)
+    orbit1.position.x = 0
+    orbit1.position.y = -100
+    orbit1.position.z = 0
+
     var floor = BABYLON.Mesh.CreateBox("floor", 1, scene);
     floor.scaling.y = 0.1;
-    floor.scaling.x = 50;
-    floor.scaling.z = 50;
+    floor.scaling.x = 250;
+    floor.scaling.z = 250;
+    floor.position.y = -225;
 
     var wall1 = BABYLON.Mesh.CreateBox("wall1", 1, scene); //left
-    wall1.scaling.y = 25;
+    wall1.scaling.y = 250;
     wall1.scaling.x = 0.5;
-    wall1.scaling.z = 50;
-    wall1.position.x = -25;
-    wall1.position.y = 12.5;
-    wall1.material = clearaMat
+    wall1.scaling.z = 250;
+    wall1.position.x = -125;
+    wall1.position.y = -100;
+    wall1.material = clearaMat;
     var wall2 = BABYLON.Mesh.CreateBox("wall2", 1, scene); //right
-    wall2.scaling.y = 25;
+    wall2.scaling.y = 250;
     wall2.scaling.x = 0.5;
-    wall2.scaling.z = 50;
-    wall2.position.x = 25;
-    wall2.position.y = 12.5;
-    wall2.material = clearaMat
+    wall2.scaling.z = 250;
+    wall2.position.x = 125;
+    wall2.position.y = -100;
+    wall2.material = clearaMat;
     var wall3 = BABYLON.Mesh.CreateBox("wall2", 1, scene); //right
-    wall3.scaling.y = 50;
+    wall3.scaling.y = 250;
     wall3.scaling.z = 0.5;
-    wall3.scaling.x = 50;
+    wall3.scaling.x = 250;
     wall3.position.x = 0;
-    wall3.position.z = 25;
-    wall3.material = clearaMat
+    wall3.position.z = 125;
+    wall3.position.y = -100
+    wall3.material = clearaMat;
 
     var wall4 = BABYLON.Mesh.CreateBox("wall2", 1, scene); //right
-    wall4.scaling.y = 50;
+    wall4.scaling.y = 250;
     wall4.scaling.z = 0.5;
-    wall4.scaling.x = 50;
+    wall4.scaling.x = 250;
     wall4.position.x = 0;
-    wall4.position.z = -25;
-    wall4.material = clearaMat
+    wall4.position.z = -125;
+    wall4.position.y = -100
+    wall4.material = clearaMat;
 
     var ceiling = BABYLON.Mesh.CreateBox("ceiling", 1, scene);
     ceiling.scaling.y = 0.5;
-    ceiling.scaling.x = 50;
-    ceiling.scaling.z = 50;
+    ceiling.scaling.x = 250;
+    ceiling.scaling.z = 250;
     ceiling.position.y = 25;
     ceiling.material = clearaMat
 
@@ -101,14 +113,14 @@ function initGame() {
 
 
     var gravityVector = new BABYLON.Vector3(0, 0, 0);
-    scene.enablePhysics(gravityVector);
     ball.physicsImpostor = new BABYLON.PhysicsImpostor(ball, BABYLON.PhysicsImpostor.SphereImpostor, { mass: 1, restitution: 1}, scene);
     floor.physicsImpostor = new BABYLON.PhysicsImpostor(floor, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
     wall1.physicsImpostor = new BABYLON.PhysicsImpostor(wall1, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
     wall2.physicsImpostor = new BABYLON.PhysicsImpostor(wall2, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
     wall3.physicsImpostor = new BABYLON.PhysicsImpostor(wall3, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
     wall4.physicsImpostor = new BABYLON.PhysicsImpostor(wall4, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
-    ceilingphysicsImpostor = new BABYLON.PhysicsImpostor(ceiling, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
+    ceiling.physicsImpostor = new BABYLON.PhysicsImpostor(ceiling, BABYLON.PhysicsImpostor.BoxImpostor, { mass: 0, restitution: 0.9 }, scene);
+    orbit1.physicsImpostor = new BABYLON.PhysicsImpostor(orbit1, BABYLON.PhysicsImpostor.SphereImpostor, {mass: 0, restitution: 0.9}, scene)
 
     var rand = function(min, max){ return Math.floor(Math.random()*(max-min+1)+min)};
     var n = 9;
