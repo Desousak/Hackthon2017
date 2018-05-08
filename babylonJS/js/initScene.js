@@ -25,7 +25,7 @@ function initScene() {
     scene.clearColor = new BABYLON.Color3(0.5, 0.5, 0.5);
 
     // Create the camera
-    camera = new BABYLON.FreeCamera("camera", new BABYLON.Vector3(100, 100, 100), scene);
+    camera = new BABYLON.FreeCamera("camera", new BABYLON.Vector3(100, 50, 50), scene);
     camera.setTarget(new BABYLON.Vector3.Zero());
     camera.attachControl(canvas);
 
@@ -51,9 +51,9 @@ function initGame() {
 
     scene.enablePhysics(gravityVector);
 
-    var orbit1 = BABYLON.MeshBuilder.CreateSphere("orbit1",{diameter: 100, diameterX: 110},scene)
+    var orbit1 = BABYLON.MeshBuilder.CreateSphere("orbit1",{diameter: 50, diameterX: 51},scene)
     orbit1.applyGravity = true
-    orbit1.gravity = new BABYLON.Vector3 (9.8,9.8,9.80)
+    orbit1.gravity = new BABYLON.Vector3 (-50,-100,-50)
     orbit1.position.x = 0
     orbit1.position.y = -100
     orbit1.position.z = 0

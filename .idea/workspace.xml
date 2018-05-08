@@ -15,8 +15,8 @@
       <file leaf-file-name="initScene.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/babylonJS/js/initScene.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="796">
-              <caret line="122" column="113" selection-start-line="122" selection-start-column="113" selection-end-line="122" selection-end-column="113" />
+            <state relative-caret-position="486">
+              <caret line="27" column="76" selection-start-line="27" selection-start-column="76" selection-end-line="27" selection-end-column="76" />
             </state>
           </provider>
         </entry>
@@ -211,12 +211,12 @@
       <workItem from="1524794859503" duration="2428000" />
       <workItem from="1524935624634" duration="7925000" />
       <workItem from="1525809175986" duration="2386000" />
-      <workItem from="1525814560182" duration="3051000" />
+      <workItem from="1525814560182" duration="4659000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15790000" />
+    <option name="totallyTimeSpent" value="17398000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="40" width="974" height="1047" extended-state="0" />
@@ -315,8 +315,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/babylonJS/js/initScene.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="796">
-          <caret line="122" column="113" selection-start-line="122" selection-start-column="113" selection-end-line="122" selection-end-column="113" />
+        <state relative-caret-position="486">
+          <caret line="27" column="76" selection-start-line="27" selection-start-column="76" selection-end-line="27" selection-end-column="76" />
         </state>
       </provider>
     </entry>
